@@ -1,7 +1,5 @@
 #include "Event.h"
 
-#include <sstream>
-
 namespace Dash {
 	class DASH_API WindowResizeEvent : public Event {
 	public:

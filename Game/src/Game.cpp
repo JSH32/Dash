@@ -1,3 +1,4 @@
+#include "dspch.h"
 #include <Dash.h>
 
 class Game : public Dash::Application {

@@ -20,6 +20,9 @@ project "Dash"
 	targetdir ("bin/" .. output .. "/%{prj.name}")
 	objdir ("bin/obj/" .. output .. "/%{prj.name}")
 
+	pchheader "dspch.h"
+	pchsource "Dash/src/dspch.cpp"
+
 	files {
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp"

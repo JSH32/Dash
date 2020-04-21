@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Dash {
 
 	class DASH_API KeyEvent : public Event {

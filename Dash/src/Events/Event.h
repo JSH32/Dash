@@ -2,9 +2,6 @@
 
 #include "../Dash/Core.h"
 
-#include <string>
-#include <functional>
-
 namespace Dash {
 
 	// Events are blocking, when the event occurs the program

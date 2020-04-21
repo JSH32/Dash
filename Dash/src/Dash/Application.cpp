@@ -1,3 +1,4 @@
+#include "dspch.h"
 #include "Application.h"
 
 #include "../Events/ApplicationEvent.h"
@@ -12,9 +13,6 @@ namespace Dash {
 	}
 
 	void Application::Run() {
-		WindowResizeEvent e(1280, 720);
-		DS_TRACE(e);
-
 		while (true);
 	}
 }
