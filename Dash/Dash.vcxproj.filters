@@ -27,9 +27,15 @@
     <ClInclude Include="src\Dash\Entry.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Dash\Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Dash\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Dash\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

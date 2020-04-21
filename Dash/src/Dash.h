@@ -5,6 +5,7 @@
 
 #include "Dash/Application.h"
 #include "Dash/Core.h"
+#include "Dash/Log.h"
 
 // Entry Point
 #include "Dash/Entry.h"
