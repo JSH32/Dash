@@ -3,9 +3,9 @@
 // Only for use by client applications
 // Under no circumstances should this be used in Dash
 
-#include "Dash/Application.h"
-#include "Dash/Core.h"
-#include "Dash/Log.h"
+#include "Dash/Core/Application.h"
+#include "Dash/Core/Core.h"
+#include "Dash/Core/Log.h"
 
 // Entry Point
-#include "Dash/Entry.h"
+#include "Dash/Core/Entry.h"

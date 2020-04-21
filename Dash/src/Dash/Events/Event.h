@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Dash/Core.h"
+#include "../Core/Core.h"
 
 namespace Dash {
 

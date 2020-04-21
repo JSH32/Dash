@@ -11,6 +11,12 @@ workspace "Dash"
 		"Dist"
 	}
 
+-- Include directories relative to root
+IncludeDir = {}
+IncludeDir["GLFW"] = "Dash/deps/GLFW/include"
+
+include "Dash/deps/GLFW"
+
 -- Engine project
 project "Dash"
 	location "Dash"
@@ -30,7 +36,13 @@ project "Dash"
 
 	includedirs {
 		"%{prj.name}/src",
-		"%{prj.name}/deps/spdlog/include"
+		"%{prj.name}/deps/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links {
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

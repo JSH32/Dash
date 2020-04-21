@@ -1,3 +1,6 @@
 [submodule "Dash/deps/spdlog"]
 	path = Dash/deps/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "Dash/deps/GLFW"]
+	path = Dash/deps/GLFW
+	url = https://github.com/Riku32/glfw
