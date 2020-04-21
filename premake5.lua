@@ -26,6 +26,7 @@ project "Dash"
 	}
 
 	includedirs {
+		"%{prj.name}/src",
 		"%{prj.name}/deps/spdlog/include"
 	}
 

@@ -9,3 +9,5 @@
 #else
 	#error Dash is currently only supported on the Windows platform!
 #endif
+
+#define BIT(x) (1 << x)
