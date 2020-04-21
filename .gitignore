@@ -1,2 +1,6 @@
 bin
 .vs
+*.sln
+*.vcxproj
+*.user
+*.filters

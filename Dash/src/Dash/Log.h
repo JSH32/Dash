@@ -5,8 +5,7 @@
 #include "spdlog/spdlog.h"
 
 namespace Dash {
-	class DASH_API Log
-	{
+	class DASH_API Log {
 	public:
 		static void Init();
 
