@@ -15,9 +15,11 @@ workspace "Dash"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Dash/deps/GLFW/include"
 IncludeDir["Glad"] = "Dash/deps/Glad/include"
+IncludeDir["ImGui"] = "Dash/deps/imgui"
 
 include "Dash/deps/GLFW"
 include "Dash/deps/Glad"
+include "Dash/deps/imgui"
 
 -- Engine project
 project "Dash"
@@ -40,12 +42,14 @@ project "Dash"
 		"%{prj.name}/src",
 		"%{prj.name}/deps/spdlog/include",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links {
 		"GLFW",
 		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 

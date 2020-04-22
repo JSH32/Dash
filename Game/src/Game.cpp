@@ -18,6 +18,7 @@ class Game : public Dash::Application {
 public:
 	Game() {
 		PushLayer(new TestingLayer());
+		PushOverlay(new Dash::ImGuiLayer());
 	}
 
 	~Game() {}
