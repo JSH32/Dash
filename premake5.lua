@@ -61,14 +61,17 @@ project "Dash"
 
 	filter "configurations:Debug"
 		defines "DS_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "DS_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "DS_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 -- Game project
@@ -105,12 +108,15 @@ project "Game"
 		
 	filter "configurations:Debug"
 		defines "DS_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "DS_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "DS_DIST"
+		buildoptions "/MD"
 		optimize "On"

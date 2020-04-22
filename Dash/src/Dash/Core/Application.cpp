@@ -1,8 +1,6 @@
 #include "dspch.h"
 #include "Application.h"
 
-#include "../Events/ApplicationEvent.h"
-
 #include <GLFW/glfw3.h>
 
 
@@ -15,15 +13,40 @@ namespace Dash {
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 	}
 
-	void Application::OnEvent(Event& e) {
-		DS_CORE_INFO("{0}", e);
+	Application::~Application() {}
+
+	void Application::PushLayer(Layer* layer) {
+		m_LayerStack.PushLayer(layer);
 	}
 
-	Application::~Application() {}
+	void Application::PushOverlay(Layer* layer) {
+		m_LayerStack.PushOverlay(layer);
+	}
+
+	void Application::OnEvent(Event& e) {
+		EventDispatcher dispatcher(e);
+		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
+
+		DS_CORE_INFO("{0}", e);
+
+		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();) {
+			(*--it)->OnEvent(e);
+			if (e.m_Handled)
+				break;
+		}
+	}
 
 	void Application::Run() {
 		while (m_Running) {
+			for (Layer* layer : m_LayerStack)
+				layer->OnUpdate();
+
 			m_Window->OnUpdate();
 		}
+	}
+	
+	bool Application::OnWindowClose(WindowCloseEvent& e) {
+		m_Running = false;
+		return true;
 	}
 }

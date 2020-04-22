@@ -1,15 +1,26 @@
 #include "dspch.h"
 #include <Dash.h>
 
+class TestingLayer : public Dash::Layer {
+public:
+	TestingLayer() : Layer("Testing") {}
+
+	void OnUpdate() override {
+		DS_INFO("Testinglayer::Update");
+	}
+
+	void OnEvent(Dash::Event& event) override {
+		DS_TRACE("{0}", event);
+	}
+};
+
 class Game : public Dash::Application {
 public:
 	Game() {
-
+		PushLayer(new TestingLayer());
 	}
 
-	~Game() {
-		
-	}
+	~Game() {}
 };
 
 Dash::Application* Dash::CreateApplication() {

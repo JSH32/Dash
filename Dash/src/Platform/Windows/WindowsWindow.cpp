@@ -44,7 +44,9 @@ namespace Dash {
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
-		// Set GLFW callback
+		// GLFW Callbacks
+
+		// Size callback
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
@@ -55,12 +57,14 @@ namespace Dash {
 			data.EventCallback(event);
 		});
 
+		// Close callback
 		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 			WindowCloseEvent event;
 			data.EventCallback(event);
 		});
 
+		// Key callback
 		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 			switch (action) {
@@ -82,6 +86,7 @@ namespace Dash {
 			}
 		});
 
+		// Mouse button callback
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
@@ -99,12 +104,14 @@ namespace Dash {
 			}
 		});
 
+		// Scroll callback
 		glfwSetScrollCallback(m_Window, [](GLFWwindow* window, double xOffset, double yOffset) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 			MouseScrolledEvent event((float)xOffset, (float)yOffset);
 			data.EventCallback(event);
 		});
 
+		// Mouse movement callback
 		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xPos, double yPos) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 

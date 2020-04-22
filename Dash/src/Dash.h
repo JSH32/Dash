@@ -6,6 +6,7 @@
 #include "Dash/Core/Application.h"
 #include "Dash/Core/Core.h"
 #include "Dash/Core/Log.h"
+#include "Dash/Core/Layer.h"
 
 // Entry Point
 #include "Dash/Core/Entry.h"
