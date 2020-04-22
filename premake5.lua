@@ -14,8 +14,10 @@ workspace "Dash"
 -- Include directories relative to root
 IncludeDir = {}
 IncludeDir["GLFW"] = "Dash/deps/GLFW/include"
+IncludeDir["Glad"] = "Dash/deps/Glad/include"
 
 include "Dash/deps/GLFW"
+include "Dash/deps/Glad"
 
 -- Engine project
 project "Dash"
@@ -37,11 +39,13 @@ project "Dash"
 	includedirs {
 		"%{prj.name}/src",
 		"%{prj.name}/deps/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links {
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -52,7 +56,8 @@ project "Dash"
 
 		defines {
 			"DS_PLATFORM_WINDOWS",
-			"DS_BUILD_DLL"
+			"DS_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands {
