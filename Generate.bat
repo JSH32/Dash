@@ -1,3 +1,3 @@
 @ECHO OFF
-call deps\bin\premake5.exe vs2019
+call deps\premake5.exe vs2019
 PAUSE
