@@ -6,7 +6,7 @@ public:
 	TestingLayer() : Layer("Testing") {}
 
 	void OnUpdate() override {
-		DS_INFO("Testinglayer::Update");
+		// DS_INFO("Updated test layer");
 	}
 
 	void OnEvent(Dash::Event& event) override {

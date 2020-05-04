@@ -71,7 +71,7 @@ project "Dash"
 		}
 
 		postbuildcommands {
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. output .. "/Game")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. output .. "/Game/\"")
 		}
 
 	filter "configurations:Debug"

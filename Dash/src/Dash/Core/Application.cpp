@@ -3,6 +3,8 @@
 
 #include <glad/glad.h>
 
+#include "Input.h"
+
 namespace Dash {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
@@ -44,10 +46,15 @@ namespace Dash {
 
 	void Application::Run() {
 		while (m_Running) {
+			// Set cyan default background
 			glClearColor(0, .5, .5, 0);
 			glClear(GL_COLOR_BUFFER_BIT);
+
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
+
+			auto [x, y] = Input::GetMousePosition();
+			DS_CORE_TRACE("{0}, {1}", x, y);
 
 			m_Window->OnUpdate();
 		}
