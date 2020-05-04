@@ -13,7 +13,6 @@ steps:
 - script: ./Generate.bat
   displayName: 'Generate build files'
 
-- task: MSBuild@1
+- task: VSBuild@1
   inputs:
-    solution: '**/*.sln'
-    msbuildArchitecture: 'x64'
+    solution: '**\*.sln'
