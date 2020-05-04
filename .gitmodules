@@ -7,3 +7,6 @@
 [submodule "Dash/deps/imgui"]
 	path = Dash/deps/imgui
 	url = https://github.com/Riku32/imgui.git
+[submodule "Dash/deps/Glad"]
+	path = Dash/deps/Glad
+	url = https://github.com/Riku32/Glad.git
