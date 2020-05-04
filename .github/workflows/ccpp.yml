@@ -13,15 +13,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      
     - name: Init submodules
     - run: git submodule init
-      
     - name: Get submodules
     - run: git submodule update
-    
     - name: Generate
       run: ./Generate.bat
-      
     - name: msbuild
       run: msbuild
