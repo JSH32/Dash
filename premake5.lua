@@ -17,6 +17,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Dash/deps/GLFW/include"
 IncludeDir["Glad"] = "Dash/deps/Glad/include"
 IncludeDir["ImGui"] = "Dash/deps/imgui"
+IncludeDir["glm"] = "Dash/deps/glm"
 
 -- Grouping because undiagnosed OCD
 group "Dependencies" 
@@ -50,7 +51,8 @@ project "Dash"
 		"%{prj.name}/deps/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links {
@@ -106,7 +108,8 @@ project "Game"
 
 	includedirs {
 		"Dash/deps/spdlog/include",
-		"Dash/src"
+		"Dash/src",
+		"%{IncludeDir.glm}"
 	}
 
 	links {

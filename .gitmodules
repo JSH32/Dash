@@ -10,3 +10,6 @@
 [submodule "Dash/deps/Glad"]
 	path = Dash/deps/Glad
 	url = https://github.com/Riku32/Glad.git
+[submodule "Dash/deps/glm"]
+	path = Dash/deps/glm
+	url = https://github.com/g-truc/glm.git
