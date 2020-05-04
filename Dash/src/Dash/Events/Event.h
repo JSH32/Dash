@@ -5,15 +5,16 @@
 namespace Dash {
 
 	// Events are blocking, when the event occurs the program
-	// Gets dispatched and must be immidiately processed.
+	// Gets dispatched and must be immediately processed.
 	// In the future events should be buffered into an event bus
 	// and process them during the event part of the update stage
 
 	enum class EventType {
 		None = 0,
 		WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
-		AppTick, AppUpdate, AppRender, KeyReleased, KeyPressed, MouseScrolledEvent,
-		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
+		AppTick, AppUpdate, AppRender,
+		KeyReleased, KeyTyped, KeyPressed, 
+		MouseScrolledEvent, MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 
 	enum EventCategory {

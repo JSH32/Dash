@@ -4,6 +4,7 @@ output = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Workspace
 workspace "Dash"
 	architecture "x64"
+	startproject "Game"
 	
 	configurations {
 		"Debug",
@@ -26,6 +27,7 @@ project "Dash"
 	location "Dash"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. output .. "/%{prj.name}")
 	objdir ("bin/obj/" .. output .. "/%{prj.name}")
@@ -55,7 +57,6 @@ project "Dash"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines {
@@ -70,17 +71,17 @@ project "Dash"
 
 	filter "configurations:Debug"
 		defines "DS_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "DS_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "DS_DIST"
-		buildoptions "/MD"
+		runtime "Debug"
 		optimize "On"
 
 -- Game project
@@ -88,6 +89,7 @@ project "Game"
 	location "Game"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. output .. "/%{prj.name}")
 	objdir ("bin/obj/" .. output .. "/%{prj.name}")
@@ -108,7 +110,6 @@ project "Game"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines {
@@ -117,15 +118,15 @@ project "Game"
 		
 	filter "configurations:Debug"
 		defines "DS_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "DS_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "DS_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"

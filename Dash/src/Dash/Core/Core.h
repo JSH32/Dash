@@ -10,6 +10,10 @@
 	#error Dash is currently only supported on the Windows platform!
 #endif
 
+#ifdef DS_DEBUG
+	#define DS_ENABLE_ASSERTS
+#endif
+
 #ifdef DS_ENABLE_ASSERTS
 	#define DS_ASSERT(x, ...) { if(!(x)) { DS_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 	#define DS_CORE_ASSERT(x, ...) { if(!(x)) { DS_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }

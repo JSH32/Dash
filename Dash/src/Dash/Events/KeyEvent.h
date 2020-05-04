@@ -6,7 +6,7 @@ namespace Dash {
 
 	class DASH_API KeyEvent : public Event {
 	public:
-		inline int GeyKeyCode() const { return m_KeyCode; }
+		inline int GetKeyCode() const { return m_KeyCode; }
 
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
 	protected:
@@ -32,6 +32,20 @@ namespace Dash {
 		EVENT_CLASS_TYPE(KeyPressed)
 	private:
 		int m_RepeatCount;
+	};
+
+	class DASH_API KeyTypedEvent : public KeyEvent {
+	public:
+		KeyTypedEvent(int keycode)
+			: KeyEvent(keycode) {}
+
+		std::string ToString() const override {
+			std::stringstream ss;
+			ss << "KeyTypedEvent: " << m_KeyCode;
+			return ss.str();
+		}
+
+		EVENT_CLASS_TYPE(KeyTyped)
 	};
 
 	class DASH_API KeyReleasedEvent : public KeyEvent {
