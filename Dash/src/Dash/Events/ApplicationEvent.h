@@ -2,8 +2,10 @@
 
 #include "Event.h"
 
-namespace Dash {
-	class DASH_API WindowResizeEvent : public Event {
+namespace Dash
+{
+	class DASH_API WindowResizeEvent : public Event
+	{
 	public:
 		WindowResizeEvent(unsigned int width, unsigned int height)
 			: m_Width(width), m_Height(height) {}
@@ -11,7 +13,8 @@ namespace Dash {
 		inline unsigned int GetWidth() const { return m_Width; }
 		inline unsigned int GetHeight() const { return m_Height; }
 
-		std::string ToString() const override {
+		std::string ToString() const override
+		{
 			std::stringstream ss;
 			ss << "WindowResizeEvent: " << m_Width << ", " << m_Height;
 			return ss.str();
@@ -23,7 +26,8 @@ namespace Dash {
 		unsigned int m_Width, m_Height;
 	};
 
-	class DASH_API WindowCloseEvent : public Event {
+	class DASH_API WindowCloseEvent : public Event
+	{
 	public:
 		WindowCloseEvent() {}
 
@@ -31,7 +35,8 @@ namespace Dash {
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class DASH_API AppTickEvent : public Event {
+	class DASH_API AppTickEvent : public Event
+	{
 	public:
 		AppTickEvent() {}
 
@@ -39,7 +44,8 @@ namespace Dash {
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class DASH_API AppUpdateEvent : public Event {
+	class DASH_API AppUpdateEvent : public Event
+	{
 	public:
 		AppUpdateEvent() {}
 
@@ -47,7 +53,8 @@ namespace Dash {
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class DASH_API AppRenderEvent : public Event {
+	class DASH_API AppRenderEvent : public Event
+	{
 	public:
 		AppRenderEvent() {}
 

@@ -4,8 +4,10 @@
 #include "spdlog/spdlog.h"
 #include "spdlog/fmt/ostr.h"
 
-namespace Dash {
-	class DASH_API Log {
+namespace Dash
+{
+	class DASH_API Log
+	{
 	public:
 		static void Init();
 

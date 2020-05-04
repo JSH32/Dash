@@ -1,12 +1,13 @@
 #pragma once
 
 #include "Core.h"
-#include "../Events/Event.h"
-#include "../Events/ApplicationEvent.h"
 #include "LayerStack.h"
 #include "Window.h"
+#include "../Events/ApplicationEvent.h"
+#include "../Events/Event.h"
 
-namespace Dash {
+namespace Dash
+{
 	class DASH_API Application
 	{
 	public:

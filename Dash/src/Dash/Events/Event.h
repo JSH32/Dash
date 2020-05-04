@@ -2,28 +2,42 @@
 
 #include "../Core/Core.h"
 
-namespace Dash {
-
+namespace Dash
+{
 	// Events are blocking, when the event occurs the program
 	// Gets dispatched and must be immediately processed.
 	// In the future events should be buffered into an event bus
 	// and process them during the event part of the update stage
 
-	enum class EventType {
+	enum class EventType
+	{
 		None = 0,
-		WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
-		AppTick, AppUpdate, AppRender,
-		KeyReleased, KeyTyped, KeyPressed, 
-		MouseScrolledEvent, MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
+		WindowClose,
+		WindowResize,
+		WindowFocus,
+		WindowLostFocus,
+		WindowMoved,
+		AppTick,
+		AppUpdate,
+		AppRender,
+		KeyReleased,
+		KeyTyped,
+		KeyPressed,
+		MouseScrolledEvent,
+		MouseButtonPressed,
+		MouseButtonReleased,
+		MouseMoved,
+		MouseScrolled
 	};
 
-	enum EventCategory {
+	enum EventCategory
+	{
 		None = 0,
-		EventCategoryApplication   = BIT(0),
-		EventCategoryInput         = BIT(1),
-		EventCategoryKeyboard      = BIT(2),
-		EventCategoryMouse         = BIT(3),
-		EventCategoryMouseButton   = BIT(4)
+		EventCategoryApplication = BIT(0),
+		EventCategoryInput = BIT(1),
+		EventCategoryKeyboard = BIT(2),
+		EventCategoryMouse = BIT(3),
+		EventCategoryMouseButton = BIT(4)
 	};
 
 #define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::##type; } \
@@ -32,7 +46,8 @@ namespace Dash {
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
-	class DASH_API Event {
+	class DASH_API Event
+	{
 		friend class EventDispatcher;
 	public:
 		bool m_Handled = false;
@@ -42,32 +57,37 @@ namespace Dash {
 		virtual int GetCategoryFlags() const = 0;
 		virtual std::string ToString() const { return GetName(); }
 
-		inline bool IsInCategory(EventCategory category) {
+		inline bool IsInCategory(EventCategory category)
+		{
 			return GetCategoryFlags() & category;
 		}
 	};
 
-	class EventDispatcher {
-		template<typename T>
+	class EventDispatcher
+	{
+		template <typename T>
 		using EventFn = std::function<bool(T&)>;
 	public:
 		EventDispatcher(Event& event)
 			: m_Event(event) {}
 
-		template<typename T>
-		bool Dispatch(EventFn<T> func) {
-			if (m_Event.GetEventType() == T::GetStaticType()) {
+		template <typename T>
+		bool Dispatch(EventFn<T> func)
+		{
+			if (m_Event.GetEventType() == T::GetStaticType())
+			{
 				m_Event.m_Handled = func(*(T*)&m_Event);
 				return true;
 			}
 			return false;
 		}
+
 	private:
 		Event& m_Event;
 	};
 
-	inline std::ostream& operator<<(std::ostream& os, const Event& e) {
+	inline std::ostream& operator<<(std::ostream& os, const Event& e)
+	{
 		return os << e.ToString();
 	}
-
 }

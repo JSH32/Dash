@@ -2,8 +2,10 @@
 
 #include "Dash/Core/Input.h"
 
-namespace Dash {
-	class WindowsInput : public Input {
+namespace Dash
+{
+	class WindowsInput : public Input
+	{
 	protected:
 		virtual bool IsKeyPressedImpl(int keycode) override;
 

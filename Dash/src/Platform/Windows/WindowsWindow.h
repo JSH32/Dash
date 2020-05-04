@@ -4,8 +4,10 @@
 
 #include <GLFW/glfw3.h>
 
-namespace Dash{
-	class WindowsWindow : public Window {
+namespace Dash
+{
+	class WindowsWindow : public Window
+	{
 	public:
 		WindowsWindow(const WindowProps& props);
 		virtual ~WindowsWindow();
@@ -26,7 +28,8 @@ namespace Dash{
 		virtual void Shutdown();
 		GLFWwindow* m_Window;
 
-		struct WindowData {
+		struct WindowData
+		{
 			std::string Title;
 			unsigned int Width, Height;
 			bool VSync;

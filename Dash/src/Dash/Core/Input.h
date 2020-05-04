@@ -2,8 +2,10 @@
 
 #include "Core.h"
 
-namespace Dash {
-	class DASH_API Input {
+namespace Dash
+{
+	class DASH_API Input
+	{
 	public:
 		inline static bool IsKeyPressed(int keycode) { return s_Instance->IsKeyPressedImpl(keycode); }
 

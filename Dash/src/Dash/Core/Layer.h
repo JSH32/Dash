@@ -4,7 +4,8 @@
 #include "Dash/Events/Event.h"
 
 namespace Dash {
-	class DASH_API Layer {
+	class DASH_API Layer
+	{
 	public:
 		Layer(const std::string& name = "Layer");
 		virtual ~Layer();

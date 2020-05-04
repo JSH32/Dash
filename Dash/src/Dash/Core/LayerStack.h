@@ -1,12 +1,13 @@
 #pragma once
 
-#include "Dash/Core/Core.h"
-#include "Layer.h"
-
 #include <vector>
 
+#include "Layer.h"
+#include "Dash/Core/Core.h"
+
 namespace Dash {
-	class DASH_API LayerStack {
+	class DASH_API LayerStack
+	{
 	public:
 		LayerStack();
 		~LayerStack();

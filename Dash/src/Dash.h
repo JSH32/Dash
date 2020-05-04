@@ -5,8 +5,8 @@
 
 #include "Dash/Core/Application.h"
 #include "Dash/Core/Core.h"
-#include "Dash/Core/Log.h"
 #include "Dash/Core/Layer.h"
+#include "Dash/Core/Log.h"
 #include "Dash/ImGui/ImGuiLayer.h"
 
 // Entry Point

@@ -5,20 +5,23 @@
 #include "Dash/Core/Core.h"
 #include "Dash/Events/Event.h"
 
-namespace Dash {
-	struct WindowProps {
+namespace Dash
+{
+	struct WindowProps
+	{
 		std::string Title;
 		unsigned int Width;
 		unsigned int Height;
 
 		WindowProps(const std::string& title = "Dash",
-			unsigned int width = 1280,
-			unsigned int height = 720)
+		            unsigned int width = 1280,
+		            unsigned int height = 720)
 			: Title(title), Width(width), Height(height) {}
 	};
 
 	// Interface representing desktop system based window
-	class DASH_API Window {
+	class DASH_API Window
+	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
 

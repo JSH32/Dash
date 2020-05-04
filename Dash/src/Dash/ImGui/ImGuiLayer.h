@@ -6,8 +6,10 @@
 #include "Dash/Events/MouseEvent.h"
 #include "Dash/Events/KeyEvent.h"
 
-namespace Dash {
-	class DASH_API ImGuiLayer : public Layer {
+namespace Dash
+{
+	class DASH_API ImGuiLayer : public Layer
+	{
 	public:
 		ImGuiLayer();
 		~ImGuiLayer();
