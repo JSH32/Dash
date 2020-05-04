@@ -21,22 +21,3 @@ jobs:
       run: ./Generate.bat
     - name: Build
       run: msbuild /property:Configuration=Release
-    - name: stf1
-      run: cd bin/Release-windows-x86_64/Game
-    - name: Zip Release
-      uses: TheDoctor0/zip-release@v0.3.0
-      with:
-        # Filename for archive
-        filename: release.zip
-        # Base path for archive files
-        path: .
-        # Working directory before zipping
-        directory: .
-        # List of excluded files/directories
-        exclusions: Game.ilk, Game.pdb
-    - name: Upload to release
-      uses: JasonEtco/upload-to-release@master
-      with:
-        args: release.zip application/zip
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
