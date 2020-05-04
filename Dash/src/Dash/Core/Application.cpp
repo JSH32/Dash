@@ -20,9 +20,7 @@ namespace Dash
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 	}
 
-	Application::~Application()
-	{
-	}
+	Application::~Application() {}
 
 	void Application::PushLayer(Layer* layer)
 	{
