@@ -8,23 +8,16 @@ on:
 
 jobs:
   build:
-
     runs-on: windows-latest
-
     steps:
     - uses: actions/checkout@v2
-      
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.0
-      
     - name: Init submodules
       run: git submodule init
-      
     - name: Get submodules
       run: git submodule update
-      
     - name: Generate
       run: ./Generate.bat
-      
     - name: Build
       run: msbuild
