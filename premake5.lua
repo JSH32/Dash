@@ -18,9 +18,14 @@ IncludeDir["GLFW"] = "Dash/deps/GLFW/include"
 IncludeDir["Glad"] = "Dash/deps/Glad/include"
 IncludeDir["ImGui"] = "Dash/deps/imgui"
 
-include "Dash/deps/GLFW"
-include "Dash/deps/Glad"
-include "Dash/deps/imgui"
+-- Grouping because undiagnosed OCD
+group "Dependencies" 
+	include "Dash/deps/GLFW"
+	include "Dash/deps/Glad"
+	include "Dash/deps/imgui"
+
+-- Apparently this is needed to stop all projects from being grouped as deps
+group ""
 
 -- Engine project
 project "Dash"
