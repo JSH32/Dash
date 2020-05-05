@@ -1,6 +1,8 @@
 #include "dspch.h"
 #include <Dash.h>
 
+#include "imgui/imgui.h"
+
 class TestingLayer : public Dash::Layer
 {
 public:
@@ -11,6 +13,13 @@ public:
 		// DS_INFO("Updated test layer");
 		if (Dash::Input::IsKeyPressed(DS_KEY_TAB))
 			DS_TRACE("POLLING Tab Pressed");
+	}
+
+	void OnImGuiRender() override
+	{
+		ImGui::Begin("Dash");
+		ImGui::Text("Hello Dash!");
+		ImGui::End();
 	}
 
 	void OnEvent(Dash::Event& event) override
@@ -33,7 +42,6 @@ public:
 	Game()
 	{
 		PushLayer(new TestingLayer());
-		PushOverlay(new Dash::ImGuiLayer());
 	}
 
 	~Game() {}

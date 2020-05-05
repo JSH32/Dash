@@ -4,12 +4,12 @@
 [submodule "Dash/deps/GLFW"]
 	path = Dash/deps/GLFW
 	url = https://github.com/Riku32/glfw.git
-[submodule "Dash/deps/imgui"]
-	path = Dash/deps/imgui
-	url = https://github.com/Riku32/imgui.git
 [submodule "Dash/deps/Glad"]
 	path = Dash/deps/Glad
 	url = https://github.com/Riku32/Glad.git
 [submodule "Dash/deps/glm"]
 	path = Dash/deps/glm
 	url = https://github.com/g-truc/glm.git
+[submodule "Dash/deps/imgui"]
+	path = Dash/deps/imgui
+	url = https://github.com/Riku32/imgui.git

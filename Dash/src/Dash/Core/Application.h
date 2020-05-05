@@ -5,6 +5,7 @@
 #include "Window.h"
 #include "../Events/ApplicationEvent.h"
 #include "../Events/Event.h"
+#include "Dash/ImGui/ImGuiLayer.h"
 
 namespace Dash
 {
@@ -27,6 +28,7 @@ namespace Dash
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 

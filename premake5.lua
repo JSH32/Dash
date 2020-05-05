@@ -109,6 +109,7 @@ project "Game"
 	includedirs {
 		"Dash/deps/spdlog/include",
 		"Dash/src",
+		"Dash/deps",
 		"%{IncludeDir.glm}"
 	}
 
