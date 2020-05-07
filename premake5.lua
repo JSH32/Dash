@@ -31,9 +31,10 @@ group ""
 -- Engine project
 project "Dash"
 	location "Dash"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
-	staticruntime "off"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. output .. "/%{prj.name}")
 	objdir ("bin/obj/" .. output .. "/%{prj.name}")
@@ -44,6 +45,10 @@ project "Dash"
 	files {
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp"
+	}
+
+	defines {
+		"_CRT_SECURE_NO_WARNINGS"
 	}
 
 	includedirs {
@@ -63,7 +68,6 @@ project "Dash"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
 		systemversion "latest"
 
 		defines {
@@ -72,31 +76,28 @@ project "Dash"
 			"GLFW_INCLUDE_NONE"
 		}
 
-		postbuildcommands {
-			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. output .. "/Game/\"")
-		}
-
 	filter "configurations:Debug"
 		defines "DS_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "DS_RELEASE"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "DS_DIST"
 		runtime "Debug"
-		optimize "On"
+		optimize "on"
 
 -- Game project
 project "Game"
 	location "Game"
 	kind "ConsoleApp"
 	language "C++"
-	staticruntime "off"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. output .. "/%{prj.name}")
 	objdir ("bin/obj/" .. output .. "/%{prj.name}")
@@ -118,7 +119,6 @@ project "Game"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
 		systemversion "latest"
 
 		defines {
@@ -128,14 +128,14 @@ project "Game"
 	filter "configurations:Debug"
 		defines "DS_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "DS_RELEASE"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "DS_DIST"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
