@@ -5,7 +5,10 @@
 #include "Window.h"
 #include "../Events/ApplicationEvent.h"
 #include "../Events/Event.h"
+
 #include "Dash/ImGui/ImGuiLayer.h"
+
+#include "Dash/Renderer/Shader.h"
 
 namespace Dash
 {
@@ -33,6 +36,7 @@ namespace Dash
 		LayerStack m_LayerStack;
 
 		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		std::unique_ptr<Shader> m_Shader;
 		
 		static Application* s_Instance;
 	};
